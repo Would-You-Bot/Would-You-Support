@@ -21,6 +21,10 @@ const client = new Client({
 });
 
 const WouldYouSupport = async () => {
+    const Voting = require('./util/voteLogger');
+    const vote = new Voting(client);
+    vote.startAPI();
+
     await require('./util/supportClient')(client);
     await require('./util/dbHandler');
     await require('./util/eventLoader')(client);
